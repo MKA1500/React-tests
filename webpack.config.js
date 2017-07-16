@@ -8,4 +8,25 @@ module.exports = {
         'webpack/hot/only-dev-server',
         './src'
     ],
-}
+    output: {
+        path: path.join(__dirname, 'public'),
+        filename: 'bundle.js'
+    },
+    resolve: {
+        modulesDirectories: ['node_modules', 'src'],
+        extensions: ['', '.js']
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
+            }
+        ]
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
+    ]
+};
