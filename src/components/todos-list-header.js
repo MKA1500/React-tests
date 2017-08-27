@@ -9,6 +9,6 @@ export default class TodosListHeader extends React.Component {
                         <th>Action</th>
                     </tr>
                 </thead>
-    );
+        );
     }
 }
