@@ -14,11 +14,17 @@ const todos = [
 
 
 export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            todos /* i.e. todos: todos */
+        };
+    }
     render() {
         return (
             <div>
-                <h1>React Test</h1>
-                <TodosList />
+                <h1>React Test 2</h1>
+                <TodosList todos={this.state.todos}/>
             </div>
     );
     }
