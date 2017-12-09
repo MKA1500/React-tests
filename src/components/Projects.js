@@ -14,7 +14,6 @@ class Projects extends Component {
 
         return (
             <div className="Projects">
-                <p>React Projects</p>
                 <p>{projectItems}</p>
             </div>
         );
