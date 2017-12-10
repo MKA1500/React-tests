@@ -1,35 +1,43 @@
 import React, {Component} from 'react';
+import uuid from 'uuid';
 import './App.css';
 import Projects from './components/Projects';
 import AddProject from './components/AddProject';
 
 class App extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             projects: []
         }
     }
 
-    componentWillMount(){
-        this.setState({projects: [
-            {
-                title: 'Business website',
-                category: 'Web design'
-            },
-            {
-                title: 'Social App',
-                category: 'Mobile Development'
-            },
-            {
-                title: 'Ecommerce Shopping Cart',
-                category: 'Web development'
-            }
-        ]});
+    componentWillMount() {
+        this.setState({
+            projects: [
+                {
+                    id: uuid.v4(),
+                    title: 'Business website',
+                    category: 'Web design'
+                },
+                {
+                    id: uuid.v4(),
+                    title: 'Social App',
+                    category: 'Mobile Development'
+                },
+                {
+                    id: uuid.v4(),
+                    title: 'Ecommerce Shopping Cart',
+                    category: 'Web development'
+                }
+            ]
+        });
     }
 
-    handleAddProject(project){
-        console.log(project);
+    handleAddProject(project) {
+        let projects = this.state.projects;
+        projects.push(project);
+        this.setState({projects: projects});
     }
 
     render() {
