@@ -8,6 +8,14 @@ body {
     max-width: 500px;
 }
 
-li {
+.container form {
+    padding-bottom: 40px;
+}
+
+.container ul {
+    padding-left: 0px;
+}
+
+.container ul li {
     list-style: none;
 }
