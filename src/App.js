@@ -1,18 +1,38 @@
 import React, {Component} from 'react';
 import uuid from 'uuid';
+import $ from 'jquery';
 import './App.css';
 import Projects from './components/Projects';
 import AddProject from './components/AddProject';
+import Todos from './components/Todos';
+
 
 class App extends Component {
     constructor() {
         super();
         this.state = {
-            projects: []
+            projects: [],
+            todos: []
         }
     }
 
-    componentWillMount() {
+    getTodos() {
+        $.ajax({
+            url: 'https://jsonplaceholder.typicode.com/todos',
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                this.setState({todos: data}, function(){
+                    console.log(this.state);
+                });
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.log(err);
+            }
+        });
+    }
+
+    getProjects() {
         this.setState({
             projects: [
                 {
@@ -34,9 +54,25 @@ class App extends Component {
         });
     }
 
+    componentWillMount() {
+        this.getProjects();
+        this.getTodos();
+    }
+
+    componentDidMount() {
+        this.getTodos();
+    }
+
     handleAddProject(project) {
         let projects = this.state.projects;
         projects.push(project);
+        this.setState({projects: projects});
+    }
+
+    handleDeleteProject(id) {
+        let projects = this.state.projects;
+        let index = projects.findIndex(x => x.id === id);
+        projects.splice(index, 1);
         this.setState({projects: projects});
     }
 
@@ -44,7 +80,8 @@ class App extends Component {
         return (
             <div className="App container">
                 <AddProject addProject={this.handleAddProject.bind(this)}/>
-                <Projects projects={this.state.projects}/>
+                <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)}/>
+                <Todos todos={this.state.todos}/>
             </div>
         );
     }
