@@ -4,7 +4,7 @@ import $ from 'jquery';
 import './App.css';
 import Projects from './components/Projects';
 import AddProject from './components/AddProject';
-import Todos from './components/Todos';
+import Users from './components/Users';
 
 
 class App extends Component {
@@ -12,17 +12,17 @@ class App extends Component {
         super();
         this.state = {
             projects: [],
-            todos: []
+            users: []
         }
     }
 
-    getTodos() {
+    getUsers() {
         $.ajax({
-            url: 'https://jsonplaceholder.typicode.com/todos',
+            url: 'https://jsonplaceholder.typicode.com/users',
             dataType: 'json',
             cache: false,
             success: function(data) {
-                this.setState({todos: data}, function(){
+                this.setState({users: data}, function(){
                     console.log(this.state);
                 });
             }.bind(this),
@@ -56,11 +56,11 @@ class App extends Component {
 
     componentWillMount() {
         this.getProjects();
-        this.getTodos();
+        this.getUsers();
     }
 
     componentDidMount() {
-        this.getTodos();
+        this.getUsers();
     }
 
     handleAddProject(project) {
@@ -81,7 +81,7 @@ class App extends Component {
             <div className="App container">
                 <AddProject addProject={this.handleAddProject.bind(this)}/>
                 <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)}/>
-                <Todos todos={this.state.todos}/>
+                <Users users={this.state.users}/>
             </div>
         );
     }

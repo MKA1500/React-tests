@@ -25,6 +25,10 @@ body {
     padding-bottom: 15px;
 }
 
+.container ul li .listItem p {
+    margin-bottom: 0px;
+}
+
 .container ul li .listItem .remove{
     float: right;
 }
