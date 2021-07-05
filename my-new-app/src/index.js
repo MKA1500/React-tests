@@ -1,31 +1,59 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-function getSecondBtnText() {
-    return 'Cancel';
-}
+import faker from 'faker';
 
 const App = () => {
-    const buttonText = {
-        text: 'Submit the form'
-    };
-    const styleSecondBtn = {
-        backgroundColor: 'white',
-        color: 'black',
-        marginLeft: '5px'
-    };
-
     return (
-    <div>
-        <label className="label" htmlFor="name">Enter name:</label>
-        <input id="name" type="text" />
-        <button style={{backgroundColor: 'blue', color: 'white'}}>
-            {buttonText.text}
-        </button>
-        <button style={styleSecondBtn}>
-            {getSecondBtnText()}
-        </button>
-    </div>
+        <div className="ui container comments">
+            <div className="comment">
+                <a href="/" className="avatar">
+                    <img alt="avatar" src={faker.image.avatar()} />
+                </a>
+                <div className="content">
+                    <a href="/" className="author">
+                        Sam
+                    </a>
+                    <div className="metadata">
+                        <span className="date">Today at 6:00 PM</span>
+                    </div>
+                    <div className="text">
+                    Brussels Region will have administered over one million doses of vaccines against Covid-19 by Sunday afternoon.
+                    </div>
+                </div>
+            </div>
+            <div className="comment">
+                <a href="/" className="avatar">
+                    <img alt="avatar" src={faker.image.avatar()} />
+                </a>
+                <div className="content">
+                    <a href="/" className="author">
+                        Sam
+                    </a>
+                    <div className="metadata">
+                        <span className="date">Today at 6:00 PM</span>
+                    </div>
+                    <div className="text">
+                    Region will have administered over one million doses of vaccines against Covid-19 by Sunday afternoon.
+                    </div>
+                </div>
+            </div>
+            <div className="comment">
+                <a href="/" className="avatar">
+                    <img alt="avatar" src={faker.image.avatar()} />
+                </a>
+                <div className="content">
+                    <a href="/" className="author">
+                        Sam
+                    </a>
+                    <div className="metadata">
+                        <span className="date">Today at 6:00 PM</span>
+                    </div>
+                    <div className="text">
+                    Brussels Region will have administered over one million doses of vaccines against Covid-19 by Sunday afternoon.
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 
