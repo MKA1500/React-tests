@@ -8,8 +8,8 @@ class App extends React.Component {
             (position) => console.log(position),
             (error) => console.log(error)
         );
-    
-        return <div className="container">Hi there!</div>;
+
+        return <div className="container">Hello!</div>;
     };
 }
 
