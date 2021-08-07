@@ -71,3 +71,8 @@ ReactDOM.render(
     <App />,
     document.querySelector('#root')
 );
+
+// reload after index.js changes:
+if (module.hot) {
+    module.hot.accept();
+}
