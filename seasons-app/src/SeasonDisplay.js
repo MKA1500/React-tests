@@ -13,6 +13,7 @@ const SeasonDisplay = (props) => {
     console.log(props);
     const season = getSeason(props.lat, new Date().getMonth());
     const bg = season === 'winter' ? 'bg winter-bg' : 'bg summer-bg';
+    const iconName = season === 'winter' ? 'fas fa-snowflake' : 'fas fa-sun';
     return (
         <div className={bg}>
             <div className="container">
@@ -25,6 +26,7 @@ const SeasonDisplay = (props) => {
                 <h1 className="text-center season-label">
                     {season === 'winter' ? 'It is winter.' : 'It is summer.'}
                 </h1>
+                <i className={iconName} />
             </div>
         </div>
     );
