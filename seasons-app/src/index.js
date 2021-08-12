@@ -33,7 +33,7 @@ class App extends React.Component {
         console.log('componentDidUpdate()');
     }
 
-    render() {
+    renderContent() {
         if (this.state.errorMessage && !this.state.lat) {
             return (
                 <div className="bg loading-bg">
@@ -50,9 +50,15 @@ class App extends React.Component {
                     long={this.state.long}/>;
         }
 
-        return (
-            <Spinner
+        return <Spinner
                 message="Please accept location request..."/>
+    }
+
+    render() {
+        return (
+            <div className="padding-5">
+                {this.renderContent()}
+            </div>
         );
     }
 }
