@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 
 const App = () => {
     return (
-        <div>
+        <div className="container">
             <SearchBar />
         </div>
     );
