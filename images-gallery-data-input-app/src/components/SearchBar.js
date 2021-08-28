@@ -6,11 +6,12 @@ class SearchBar extends React.Component {
     onFormSubmit(event) {
         event.preventDefault();
 
-        console.log(this.state.term)
+        this.props.onSubmitSearch(this.state.term);
     }
 
     render() {
         return (
+            // bind is the old way. I could change onFormSubmit to arrow function...
             <div className="pt-5">
                 <form onSubmit={this.onFormSubmit.bind(this)}>
                     <input 
