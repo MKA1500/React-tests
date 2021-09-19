@@ -1,20 +1,28 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import Unsplash from '../api/unsplash';
 
 class App extends React.Component {
-    cars = [];
+    settings = new Unsplash();
+    state = { images: [] };
+
+    constructor() {
+        super();
+
+        console.log(this.settings.baseUrl);
+        console.log(this.settings.clientId);
+    }
+
     onSearchSubmit = (term) => {
-        console.log(term);
         // https://unsplash.com/documentation#search-photos
         // https://unsplash.com/documentation#location 
-        fetch(`https://api.unsplash.com/search/photos?query=${term}`, {
-            headers: { Authorization: 'Client-ID xxx' }
+        fetch(`${this.settings.baseUrl}search/photos?query=${term}`, {
+            headers: { Authorization: `Client-ID ${this.settings.clientId}` }
         })
         .then(response => response.json())
         .then((data) => {
             if (data && data.results) {
-                this.cars = data.results;
-                console.log(this.cars);
+                this.setState({ images: data.results });
             }
         });
     }
@@ -23,6 +31,7 @@ class App extends React.Component {
         return (
             <div className="container">
                 <SearchBar onSubmitSearch={this.onSearchSubmit} />
+                Found: {this.state.images.length} images
             </div>
         );
     }
