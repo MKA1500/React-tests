@@ -1,0 +1,17 @@
+.gallery-inner-cell {
+    height: 10.5rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-item {
+    position: absolute;
+    height: auto;
+    width: auto;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
