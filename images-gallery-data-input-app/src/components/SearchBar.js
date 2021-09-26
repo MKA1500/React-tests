@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
     render() {
         return (
             // bind is the old way. I could change onFormSubmit to arrow function...
-            <div className="pt-5">
+            <div className="pt-5 pb-2">
                 <form onSubmit={this.onFormSubmit.bind(this)}>
                     <input 
                         className="form-control" 

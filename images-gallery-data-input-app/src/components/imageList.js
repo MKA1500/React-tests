@@ -5,18 +5,15 @@ const ImageList = (props) => {
 
     const images = props.images.map(({ id, description, urls }) => {
         return (
-            <div className="col-2 my-3" key={id}>
-                <div className="gallery-inner-cell">
-                    <img 
-                        src={urls.small}
-                        alt={description}
-                        className="image-item"/>
-                    </div>
-            </div>
+            <img 
+                src={urls.small}
+                alt={description}
+                key={id}
+                className="image-item"/>
         );
     });
 
-    return <div className="row">{images}</div>;
+    return <div className="images-list">{images}</div>;
 };
 
 export default ImageList;
