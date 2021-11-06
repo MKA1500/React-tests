@@ -1,14 +1,27 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-import YouTube from '../apis/youtube';
 
 class App extends React.Component {
-    settings = new YouTube();
+    url = new URL('https://www.googleapis.com/youtube/v3/search');
 
     onSearchSubmit = (term) => {
-        console.log('term', term);
-        console.log('getUrl', this.settings.getUrl);
-        console.log('clientKey', this.settings.clientKey);
+        const params = {
+            part: 'snippet',
+            key: 'xx',
+            maxResults: 5,
+            q: term
+        }
+
+        this.url.search = new URLSearchParams(params).toString();
+
+        fetch(this.url)
+        .then(response => response.json())
+        .then((data) => {
+            // if (data && data.results) {
+            //     this.setState({ images: data.results });
+            // }
+            console.log(data);
+        });
     }
 
     render() {
