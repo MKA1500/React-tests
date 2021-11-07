@@ -3,11 +3,12 @@ import SearchBar from './SearchBar';
 
 class App extends React.Component {
     url = new URL('https://www.googleapis.com/youtube/v3/search');
+    state = { videos: [] };
 
     onSearchSubmit = (term) => {
         const params = {
             part: 'snippet',
-            key: 'xx',
+            key: 'AIzaSyB0YFhI7p4tBGqNSOXguPHYdcf00LYD4jo',
             maxResults: 5,
             q: term
         }
@@ -17,10 +18,10 @@ class App extends React.Component {
         fetch(this.url)
         .then(response => response.json())
         .then((data) => {
-            // if (data && data.results) {
-            //     this.setState({ images: data.results });
-            // }
-            console.log(data);
+            if (data && data.items) {
+                this.setState({ videos: data.items });
+            }
+            console.log(data.items);
         });
     }
 
@@ -28,6 +29,7 @@ class App extends React.Component {
         return (
             <div className="container">
                 <SearchBar onSubmitSearch={this.onSearchSubmit} />
+                <p>{this.state.videos.length} videos found</p>
             </div>
         );
     }
