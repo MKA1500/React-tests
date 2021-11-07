@@ -8,7 +8,7 @@ class App extends React.Component {
     onSearchSubmit = (term) => {
         const params = {
             part: 'snippet',
-            key: 'AIzaSyB0YFhI7p4tBGqNSOXguPHYdcf00LYD4jo',
+            key: 'xx',
             maxResults: 5,
             q: term
         }
