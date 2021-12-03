@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import VideoList from './VideoList';
 
 class App extends React.Component {
     url = new URL('https://www.googleapis.com/youtube/v3/search');
@@ -8,7 +9,7 @@ class App extends React.Component {
     onSearchSubmit = (term) => {
         const params = {
             part: 'snippet',
-            key: 'xx',
+            key: '',
             maxResults: 5,
             q: term
         }
@@ -29,7 +30,7 @@ class App extends React.Component {
         return (
             <div className="container">
                 <SearchBar onSubmitSearch={this.onSearchSubmit} />
-                <p>{this.state.videos.length} videos found</p>
+                <VideoList videos={this.state.videos} />
             </div>
         );
     }
