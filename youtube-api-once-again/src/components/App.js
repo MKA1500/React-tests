@@ -10,7 +10,7 @@ class App extends React.Component {
         const params = {
             part: 'snippet',
             key: '',
-            maxResults: 5,
+            maxResults: 10,
             q: term
         }
 
