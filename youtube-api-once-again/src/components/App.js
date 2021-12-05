@@ -1,10 +1,14 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
 
 class App extends React.Component {
     url = new URL('https://www.googleapis.com/youtube/v3/search');
-    state = { videos: [] };
+    state = { 
+        videos: [],
+        selectedVideo: null
+    };
 
     onSearchSubmit = (term) => {
         const params = {
@@ -26,16 +30,22 @@ class App extends React.Component {
         });
     }
 
+    onVideoSelect = (video) => {
+        this.setState({ selectedVideo: video });
+    };
+ 
     render() {
         return (
             <div className="container">
                 <SearchBar onSubmitSearch={this.onSearchSubmit} />
                 <div className="row">
                     <div className="col-6">
-
+                        <VideoDetail video={this.state.selectedVideo} />
                     </div>
                     <div className="col-6">
-                        <VideoList videos={this.state.videos} />
+                        <VideoList
+                            videos={this.state.videos}
+                            onVideoSelect={this.onVideoSelect} />
                     </div>
                 </div>
             </div>
