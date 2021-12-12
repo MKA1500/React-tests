@@ -10,6 +10,10 @@ class App extends React.Component {
         selectedVideo: null
     };
 
+    componentDidMount() {
+        this.onSearchSubmit('React JS');
+    }
+
     onSearchSubmit = (term) => {
         const params = {
             part: 'snippet',
@@ -24,7 +28,10 @@ class App extends React.Component {
         .then(response => response.json())
         .then((data) => {
             if (data && data.items) {
-                this.setState({ videos: data.items });
+                this.setState({ 
+                    videos: data.items,
+                    selectedVideo: data.items[0]
+                });
             }
             console.log(data.items);
         });
