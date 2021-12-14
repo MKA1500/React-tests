@@ -1,13 +1,17 @@
 import React from 'react';
 
 const Accordion = ({ items }) => {
-    const renderedItems = items.map(item => {
+    const onTitleClick = (index) => {
+        console.log('Title clicked', index);
+    };
+
+    const renderedItems = items.map((item, index) => {
         return (
             <div key={item.id} className="card">
                 <div className="card-body">
                     <div
                         className="card-title"
-                        onClick={() => console.log(item.id, item.title)}>
+                        onClick={() => onTitleClick(index)}>
                         <i className="dropdown-icon"></i>
                         {item.title}
                     </div>
