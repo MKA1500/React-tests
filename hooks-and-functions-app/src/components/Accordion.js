@@ -8,11 +8,13 @@ const Accordion = ({ items }) => {
     };
 
     const renderedItems = items.map((item, index) => {
+        const active = index === activeIndex ? 'active' : '';
+
         return (
             <div key={item.id} className="card">
                 <div className="card-body">
                     <div
-                        className="card-title"
+                        className={`card-title ${active}`}
                         onClick={() => onTitleClick(index)}>
                         <i className="dropdown-icon"></i>
                         {item.title}
