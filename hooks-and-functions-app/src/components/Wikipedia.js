@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Accordion = ({ items }) => {
+const Wikipedia = ({ items }) => {
     const [activeIndex, setActiveIndex] = useState(null);
 
     const onTitleClick = (index) => {
@@ -11,11 +11,13 @@ const Accordion = ({ items }) => {
         const active = index === activeIndex ? 'active' : '';
 
         return (
-            <div key={item.id} className="card">
+            <div 
+                key={item.id}
+                className={`wiki-card card ${active}`}
+                onClick={() => onTitleClick(index)}>
                 <div className="card-body">
                     <div
-                        className={`card-title ${active}`}
-                        onClick={() => onTitleClick(index)}>
+                        className={`card-title ${active}`}>
                         <i className="dropdown-icon"></i>
                         {item.title}
                     </div>
@@ -28,11 +30,11 @@ const Accordion = ({ items }) => {
     });
 
     return (
-        <div className='accordion'>
+        <div className='wiki'>
             {renderedItems}
             <h3>Active index: {activeIndex}</h3>
         </div>   
     );
 };
 
-export default Accordion;
+export default Wikipedia;

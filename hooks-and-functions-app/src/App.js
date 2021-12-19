@@ -1,5 +1,5 @@
 import React from 'react';
-import Accordion from './components/Accordion';
+import Wikipedia from './components/Wikipedia';
 import './App.css';
 
 const items = [
@@ -23,7 +23,7 @@ const items = [
 export default () => {
     return (
         <div className="container py-3">
-            <Accordion items={items} />
+            <Wikipedia items={items} />
         </div>
     );
 };
