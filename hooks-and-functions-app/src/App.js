@@ -1,5 +1,6 @@
 import React from 'react';
 import Wikipedia from './components/Wikipedia';
+import Search from './components/Search';
 import './App.css';
 
 const items = [
@@ -23,6 +24,7 @@ const items = [
 export default () => {
     return (
         <div className="container py-3">
+            <Search />
             <Wikipedia items={items} />
         </div>
     );
