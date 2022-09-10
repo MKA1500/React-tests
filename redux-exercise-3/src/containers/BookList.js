@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectBook } from '../actions/index';
 import { bindActionCreators } from 'redux';
+import './BookList.css';
 
 class BookList extends Component {
 
     renderLIst() {
-        console.log('renderLIst()');
-        console.log(this.props.books);
         return this.props.books.map((book) => {
             return (
                 <li 

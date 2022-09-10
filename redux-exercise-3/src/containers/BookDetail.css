@@ -1,0 +1,9 @@
+.main-image-wrap {
+    width: 100%;
+}
+
+.main-image-wrap img {
+    width: auto;
+    height: 100%;
+    max-height: 65vh;
+}
