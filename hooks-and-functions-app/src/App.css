@@ -1,15 +1,15 @@
 .wiki-card {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .card-title.active {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .card-text {
-    display: none;
+  display: none;
 }
 
 .active .card-text {
-    display: block;
+  display: block;
 }
