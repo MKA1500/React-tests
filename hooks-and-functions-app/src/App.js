@@ -1,5 +1,5 @@
 import React from 'react';
-import Wikipedia from './components/Wikipedia';
+import Accordion from './components/Accordion';
 import Search from './components/Search';
 import GiveItems from './data/Items';
 import './App.css';
@@ -10,7 +10,7 @@ export default () => {
     return (
         <div className="container py-3">
             <Search />
-            <Wikipedia items={items} />
+            <Accordion items={items} />
         </div>
     );
 };

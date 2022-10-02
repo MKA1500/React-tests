@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Wikipedia = ({ items }) => {
+const Accordion = ({ items }) => {
     const [activeIndex, setActiveIndex] = useState(null);
 
     const onTitleClick = (index) => {
@@ -37,4 +37,4 @@ const Wikipedia = ({ items }) => {
     );
 };
 
-export default Wikipedia;
+export default Accordion;
