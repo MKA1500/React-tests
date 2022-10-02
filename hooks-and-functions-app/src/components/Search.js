@@ -6,22 +6,29 @@ const Search = () => {
     const [results, setResults] = useState([]);
 
     useEffect(() => {
-        if (term) {
-            const search = async () => {
-                const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
-                    params: {
-                        action: 'query',
-                        list: 'search',
-                        origin: '*',
-                        format: 'json',
-                        srsearch: term
-                    }
-                });
-                setResults(data.query.search);
-                console.log(data.query.search);
-            };
-            search();
-        }
+        const search = async () => {
+            const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
+                params: {
+                    action: 'query',
+                    list: 'search',
+                    origin: '*',
+                    format: 'json',
+                    srsearch: term
+                }
+            });
+            setResults(data.query.search);
+            console.log(data.query.search);
+        };
+
+        const timeoutId = setTimeout(() => {
+            if (term) {
+                search();
+            }
+        }, 500);
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
     }, [term]);
 
     const renderedResults = results.map((result) => {
@@ -29,7 +36,15 @@ const Search = () => {
         cleanResult = cleanResult.replace(/<[^>]*>?/gm, '');
         return (
             <div className="list-group-item" key={result.pageid}>
-                <h5 className="mb-1">{result.title}</h5>
+                <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">{result.title}</h5>
+                    <a 
+                        className="btn btn-primary btn-sm"
+                        href={`https://en.wikipedia.org?curid=${result.pageid}`}
+                        target="_blank">
+                        Read
+                    </a>
+                </div>
                 <small>{cleanResult}</small>
             </div>
         );
