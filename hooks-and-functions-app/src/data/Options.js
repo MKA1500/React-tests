@@ -2,23 +2,19 @@ export default function GiveOptions() {
     return  [
         {
             label: 'Color of red',
-            value: 'red',
-            id: 1
+            value: 'red'
         },
         {
-            title: 'Green color',
-            content: 'green',
-            id: 2
+            label: 'Green color',
+            value: 'green'
         },
         {
-            title: 'Color blue',
-            content: 'blue',
-            id: 3
+            label: 'Color blue',
+            value: 'blue'
         },
         {
-            title: 'Color of orange',
-            content: 'orange',
-            id: 4
+            label: 'Color of orange',
+            value: 'orange'
         }
     ];
 }

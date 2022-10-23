@@ -13,3 +13,17 @@
 .active .card-text {
   display: block;
 }
+
+.div-selection {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.div-selection-item {
+  padding: 0.25rem;
+}
+
+.div-selection-item:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
